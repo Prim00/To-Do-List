@@ -1,0 +1,114 @@
+.welcome{
+    margin-top: 50px;
+    text-align: center;
+    color:hsl(215, 75%, 57%);
+    font-size: 3rem;
+    text-shadow: 0 0 5px white , 0 0 10px white , 0 0 20px white;
+    
+
+}
+.des{
+    text-align: center;
+    color: hsl(0, 92%, 36%);
+    font-family: cursive;
+    font-weight: bold;
+    font-size: 30px;
+    margin-top: -30px;
+    text-shadow: 0 0 5px white , 0 0 10px white , 0 0 20px white;
+}   
+
+
+::placeholder{
+    font-size: 20px;
+    padding-left: 10px;
+}
+
+input[type="text"],input[type="datetime-local"]{
+    border: 1px solid hwb(0 89% 11%);
+    font-size: 1rem;
+    border-radius: 5px;
+    margin-right: 15px;
+
+}
+
+.hole{
+    text-align: center;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add{
+    background-color: hsl(119, 72%, 39%);
+    border: none;
+    border-radius: 5px;
+    color:white;
+    font-size: 1.2rem;
+    margin-left:30px;
+
+    
+}
+
+.add:hover{
+    background-color: hsl(119, 72%, 29%);
+}
+
+
+ol{
+    padding: 0;
+}
+.ok{
+    background-color: hsl(0, 50%, 98%);
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: cursive;
+    font-size: 1.3rem;
+    padding: 20px   ;
+    border-radius: 10px;
+}
+.name{
+    flex:1;
+    padding-left: 50px;
+}
+.time{
+    flex: 1;
+}
+
+.butt{
+    display: flex;
+   justify-content: center; 
+   
+}
+#button-delete{
+   background-color: hsl(0, 68%, 52%);
+   border: 1px solid hsl(0, 29%, 97%);
+   border-radius: 5px;
+   color: white;
+   cursor: pointer;
+   margin-right: 2px;
+}
+#button-delete:hover{
+   background-color: hsl(0, 64%, 32%);
+
+}
+
+#button-update{
+    background-color: hsl(225, 88%, 60%);
+    border: 1px solid hsl(0, 29%, 97%);
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    margin-right: 2px;
+}
+#button-update:hover{
+    background-color: hsl(225, 88%, 50%);
+
+}
+
+a{
+    text-decoration: none ;
+    color: aliceblue;
+}

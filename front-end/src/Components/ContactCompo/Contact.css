@@ -1,0 +1,72 @@
+.formulaire h3{
+    background-color: none;
+    color:hsla(234, 65%, 49%, 0.881);
+    text-align: center;
+    font-family: cursive;
+    font-weight:bold ;
+    font-size: 36px;
+    margin-top: -30px;
+
+}
+.formulaire{
+    display:grid;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border: 30px solid #ffffff; 
+    box-shadow: 2px 3px 15px rgb(138, 166, 244);
+    border-radius: 15px;
+    margin-right: 400px;
+    margin-left: 450px;
+    height: 660px;
+    padding: 20px;
+    
+}
+
+.label1{
+    color: hsl(192, 68%, 44%);
+    margin-top: -70px;
+    font-size: 24px;
+    padding-left: 30px;
+
+}
+.feed{
+    margin-top: -100px;
+    width: auto; 
+    height: 40px; 
+    border: 1px solid gray;  
+    border-radius: 5px;
+}
+#ila{
+    color: hsl(192, 68%, 44%);
+    background-color: transparent;
+    margin-left: -68px;
+    margin-bottom: 5px;
+    font-size: 30px;
+    padding-left: 40px;
+    margin-top: -60px;
+}
+.description-text{
+    margin-top: -100px;
+    height: 200px;
+    margin-bottom: -50px;
+    border: 2px solid gray;  
+    border-radius: 5px;
+}
+.send-button{
+    border: 1px solid gray;  
+    border-radius: 10px;
+    width: 200px;
+    margin-left: 170px;
+    color:hsla(234, 65%, 49%, 0.881);
+    font-size: 20px;
+    margin-bottom: -20px;
+}
+.send-button:hover{
+    color: white;
+    border: none;
+    background-color:hsla(234, 93%, 48%, 0.7) ;
+    text-shadow: 0 0 5px white , 0 0 10px white , 0 0 20px white;
+    box-shadow: 0 0 5px hsla(234, 93%, 48%, 0.7) , 0 0 20px hsla(234, 93%, 48%, 0.7) , 0 0 100px hsla(234, 93%, 48%, 0.7);
+
+}

@@ -1,0 +1,48 @@
+.update-container{
+    position: absolute;
+    top: 170px;
+    left: 450px;
+    background-color: rgb(243, 247, 245);
+    border: 3px solid beige;
+    border-radius: 30px;
+    height: 450px;
+    width: 600px;
+    padding: 30px;
+    text-align: center;
+    font-size: 1.6rem;
+    color: hsl(29, 89%, 48%);
+}
+
+.title-task{
+    color: hsl(0, 67%, 45%);
+    margin-top: 6px;
+    margin-bottom: 50px;
+}
+
+.task-name{
+    margin-right: 40px;
+    
+
+}
+
+.name-update{
+    margin-bottom: 30px;
+    
+
+}
+
+.input-name{
+    margin-top: 20px;
+}
+
+#update{
+    margin-top: 50px;
+    cursor: pointer;
+    font-size: 1.3rem;
+}
+#update:hover{
+    background-color: hsl(259, 68%, 74%);
+    color: white;
+    text-shadow: 0 0 5px white , 0 0 10px white , 0 0 20px white;
+    box-shadow: 0 0 10px hsl(259, 68%, 74%) , 0 0 20px hsl(259, 68%, 74%) , 0 0 100px hsl(259, 68%, 74%);
+}

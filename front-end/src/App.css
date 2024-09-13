@@ -1,0 +1,8 @@
+body{
+    background-image: url("./src/assets/Home.jpg") ;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position-y: -70px;
+    backdrop-filter: blur(8px); 
+}
