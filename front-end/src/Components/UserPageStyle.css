@@ -112,3 +112,16 @@ a{
     text-decoration: none ;
     color: aliceblue;
 }
+
+.log-out-button{
+    color: hsl(0, 100%, 50%);
+    background-color: aliceblue;
+    margin-top: -20px;
+}
+
+.log-out-button:hover{
+    color: aliceblue;
+    background-color: hsl(0, 100%, 40%);
+    text-shadow: 0 0 5px white 0 0 10px white, 0 0 20px white;
+    box-shadow: 0 0 10px hsl(0, 100%, 40%), 0 0 20px hsl(0, 100%, 40%) , 0 0 100px hsl(0, 100%, 40%) ;
+}

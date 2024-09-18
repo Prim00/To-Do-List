@@ -152,15 +152,20 @@ async function handleUpdate(taskId){
   }catch(e){
       console.log("Erreur lors de la modifiation de tache !! Veuillez verifier svp ! ")
   }
-
-
 }
+
+function handleLogOut(){
+  localStorage.clear()
+  navigate("/Login")
+}
+
 
   return (
     <>
     <hr />
       <h2 className='welcome'>Welcome {userData.firstname} {userData.lastname} 🤗</h2> 
         <p className='des'> Our app is here to help you </p>
+        <center><button className="log-out-button" onClick={handleLogOut}>Log out</button></center>
   
     <div className='hole'>
       <form className='container-add' onSubmit={handleAdd} >

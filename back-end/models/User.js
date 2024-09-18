@@ -14,7 +14,11 @@ const userSchema = new Schema({
         password: {
                 type : String,
                 required : true
-                }
+                },
+        verifyToken : {
+                type : String,
+                required :false,
+        }
 })
 
 const user = mongoose.model("User",userSchema)

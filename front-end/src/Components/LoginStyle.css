@@ -219,3 +219,10 @@
   .signup:hover a{
     text-decoration: none;
   }
+
+  .forget{
+    color: black;
+    margin-top: -10px;
+    margin-left: 210px;
+    margin-bottom: -20px;
+  }

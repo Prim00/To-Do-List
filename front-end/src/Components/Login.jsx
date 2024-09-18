@@ -43,7 +43,9 @@ export default function Login() {
           <input className="input" type="password" name="pwd" onChange={e => setPassword(e.target.value)} required />
           <span>Password</span>
         </label>
+        <p className='forget'><Link to ="/ResetPass">Forget Password ?</Link></p>
         <button className="submit"><span>Login</span></button>
+        
         <p className="signup">Don't Have an Account Yet?<br /><br /><Link to='/SignUp'>SignUp</Link></p>
       </form>
     </center>
