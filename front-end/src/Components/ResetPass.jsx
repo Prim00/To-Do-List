@@ -23,13 +23,7 @@ function ResetPass() {
 
         const reponse = await info.json()
         if(reponse.status=="ok"){
-            Swal.fire({
-                position: "top",
-                icon: "success",
-                title: "veuillez consuler votre mailTrap to Reset yout Password 😋",
-                showConfirmButton: false,
-                timer: 1500
-              });
+            alert("veuillez consuler votre mailTrap to Reset yout Password 😋")
             console.log(reponse.status)
 
         }else{
