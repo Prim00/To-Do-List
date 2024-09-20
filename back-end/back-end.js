@@ -125,12 +125,18 @@ app.delete("/deleteTask",async(req,res)=>{
 app.post("/api/updateTask",async(req,res)=>{
     try{
     const token = req.headers["x-access-token"]
+    const id = req.headers["x-task-id"]
     if(!token){
         return res.status(404).json({message : "Token Missing "})
     }
 
+    const oldTask = await Task.findById(id)
     res.json({
-        status : "ok"
+        status : "ok",
+        info : {
+            name:oldTask.name,
+            time:oldTask.time
+        },
     })
 
     }catch(e){
@@ -165,7 +171,6 @@ app.put("/updateTask",async(req,res)=>{
         }
         
     })
-
 // ===================================== **************** ======================================
 
 app.post("/api/SignUp",async(req,res)=>{
@@ -324,6 +329,43 @@ try{
 }
 
 })
+
+app.post("/sendFeedback",async (req,res)=>{
+
+    const email = req.body.feedmail
+    const text  = req.body.feedtext
+    try{
+
+    const transporter = nodemailer.createTransport({
+        host: "sandbox.smtp.mailtrap.io",
+        port: 2525,
+        auth: {
+          user: process.env.USER_MAIL,
+          pass: process.env.USER_PASS
+        }
+      });
+
+      await transporter.sendMail({
+        from: email,
+        to: "bel.j.xxxx@gmail.com", 
+        subject: "App Feedback  ", 
+        text: `Feedback de : ${email}\n\n${text}`
+      });
+
+      res.json({
+        status : "ok"
+      })
+
+    }catch(e){
+        console.log("errrrrrrrrrrrrreuur",e)
+        return res.json({
+            status : "false",
+            message : "erreur lors de l'envoie de Feedback"
+        })
+    }
+
+})
+
 
 app.listen(3030,()=>{
     console.log("i am listening on port 3030")

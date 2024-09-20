@@ -2,9 +2,13 @@ import React, { useEffect, useState } from 'react';
 import {jwtDecode} from 'jwt-decode';
 
 import './UserPageStyle.css';
-import {Link,useNavigate } from 'react-router-dom';
+import {useNavigate } from 'react-router-dom';
+import "./SearchBarStyle.css"
 
 import moment from 'moment';
+import SearchComponent from './SearchComponent';
+import FiltreComponent from './FiltreComponent';
+
 
 function UserPage() {
 
@@ -19,6 +23,7 @@ function UserPage() {
   })
   const [taskName , setTaskName] =useState("")
   const [taskTime , setTaskTime] =useState("")
+
 
   const [allTask , setAllTask] = useState([])
 
@@ -92,6 +97,8 @@ async function handleAdd(event){
 
     if(data.status ==="ok"){
         alert("Task added Successfully 🥰")
+        setTaskName("")
+        setTaskTime("")
         populateUserPage()
     }
     else{
@@ -136,14 +143,16 @@ async function handleUpdate(taskId){
           method : "POST",
           headers:{
               "Content-Type" : "application/json",
-              "x-access-token" : localStorage.getItem("token")
+              "x-access-token" : localStorage.getItem("token"),
+              "x-task-id" : localStorage.getItem("taskId")
           },
       })
 
       const valide = await updatePage.json()
 
       if(valide.status=="ok"){
-        navigate("/UpdatePage")
+        const {name,time} = valide.info
+        navigate("/UpdatePage", {state : {name,time}})
       }else{
         alert("Token invalide ! ")
         navigate("/Login")
@@ -163,6 +172,19 @@ function handleLogOut(){
   return (
     <>
     <hr />
+    <SearchComponent 
+      allTask={allTask} 
+      handleDelete={handleDelete}
+      handleUpdate={handleUpdate}
+      formatTaskTime={formatTaskTime} />
+<hr />
+    <FiltreComponent 
+      allTask={allTask}
+      handleDelete={handleDelete}
+      handleUpdate={handleUpdate}
+      formatTaskTime={formatTaskTime} />
+<hr />
+    
       <h2 className='welcome'>Welcome {userData.firstname} {userData.lastname} 🤗</h2> 
         <p className='des'> Our app is here to help you </p>
         <center><button className="log-out-button" onClick={handleLogOut}>Log out</button></center>
