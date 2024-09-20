@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import "./UpdatePageStyle.css"
 import { useLocation, useNavigate} from 'react-router-dom'
 
+import Swal from 'sweetalert2';
+
 function UpdatePage() {
 
     const location = useLocation()
@@ -39,10 +41,20 @@ function UpdatePage() {
             const resUpdate = await updatePage.json()
 
             if(resUpdate.status == "ok"){
-                alert("Task Updated Succesfully ")
                 navigate("/UserPage")
+                    Swal.fire({
+                        position: "top",
+                        icon: "success",
+                        title:  "Task Updated Succesfully ",
+                        showConfirmButton: false,
+                        timer:1500
+                      });
             }else{  
-                alert("Erreur while updating the task ! ")
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Erreur while updating the task ! ",
+                  });
             }
         }catch(e){
             console.log("Erreur lors de la modifiation de tache !! Veuillez verifier svp ! ")

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './Contact.css'
 import {useNavigate } from 'react-router-dom';
 
+import Swal from 'sweetalert2';
 
 
 export default function Contact() {
@@ -30,10 +31,25 @@ export default function Contact() {
       const resu = await env.json()
 
       if(resu.status=="ok"){
-        alert("Thank you for your Feedback ")
-        navigate(-1)
+        Swal.fire({
+          position: "mid",
+          icon: "success",
+          title: "Thank you for your Feedback ",
+          showConfirmButton: false,
+          timer: 1500
+        });
+        setTimeout(() => {
+          navigate(-1)
+        }, 1500);
+        
       }else{
-        alert("Erreur lors d'envoie de FeedBack !! ")
+        
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Erreur lors d'envoie de FeedBack !! ",
+          });
+
       }
 
     }catch(e){

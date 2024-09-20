@@ -102,7 +102,6 @@ app.delete("/deleteTask",async(req,res)=>{
                 message: "token missing ! "
             })
         }
-
         const {id} = req.body
         const delTask = await Task.findByIdAndDelete(id)
 

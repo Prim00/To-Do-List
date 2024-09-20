@@ -4,6 +4,7 @@ import {jwtDecode} from 'jwt-decode';
 import './UserPageStyle.css';
 import {useNavigate } from 'react-router-dom';
 import "./SearchBarStyle.css"
+import Swal from 'sweetalert2';
 
 import moment from 'moment';
 import SearchComponent from './SearchComponent';
@@ -53,11 +54,22 @@ function UserPage() {
         setAllTask(sortedTask)
       }
       else{
-        alert("Erreur d'affichage des tâches !");      }
-    }
-    else{
-      alert("User not found or invalide Token ! ")
-      navigate("/Login")
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Erreur d'affichage des tâches !",
+        });
+     }
+    }else{
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "User not found or invalide Token ! ",
+        timer:2500
+      });
+      setTimeout(() => {
+        navigate("/Login")
+      }, 2500);
     }
   }
 
@@ -96,13 +108,26 @@ async function handleAdd(event){
   const data = await response.json()
 
     if(data.status ==="ok"){
-        alert("Task added Successfully 🥰")
+      Swal.fire({
+        position: "top",
+        icon: "success",
+        title: "Task added Successfully 🥰",
+        showConfirmButton: false,
+        timer: 1500
+      });
         setTaskName("")
         setTaskTime("")
-        populateUserPage()
+        setTimeout(() => {
+          populateUserPage()
+        }, 1500);
     }
     else{
-      alert("Failed ! Task  can not added 😥 ")}
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Failed ! Task  can not added 😥 ",
+      });
+    }
   } catch(e){
     console.log("errrrorrrrrr lors de l'ajout de tache !!!!! 😡")
   }
@@ -124,10 +149,23 @@ async function handleAdd(event){
             const finish = await resDelete.json()
 
             if(finish.status =="ok"){
-                  alert("Task deleted Successfully ")
-                  populateUserPage()
+              Swal.fire({
+                position: "mid",
+                icon: "success",
+                title: "Task deleted Successfully ",
+                showConfirmButton: false,
+                timer: 1500
+              });
+              setTimeout(() => {
+                populateUserPage()
+              }, 1500);
+                  
             }else{
-              alert("Sorry ! we couldn't delete teh task  ")
+              Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Sorry ! we couldn't delete teh task  ",
+              });
             }
     }catch(e){
       console.log("error lors du suppression de Task ! " ,e)
@@ -154,7 +192,11 @@ async function handleUpdate(taskId){
         const {name,time} = valide.info
         navigate("/UpdatePage", {state : {name,time}})
       }else{
-        alert("Token invalide ! ")
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Token invalide ! ",
+        });
         navigate("/Login")
       }
 

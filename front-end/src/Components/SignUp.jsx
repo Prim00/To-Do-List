@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './SignUpStyle.css';
 
+import Swal from 'sweetalert2';
+
 export default function SignUp() {
   const navigate = useNavigate();
 
@@ -14,13 +16,17 @@ export default function SignUp() {
 
   async function handleForm2(event) {
 
-    if(pass!==password){
-      alert("Assurer que le mot de passe se conforme avec le mot de passe de confirmation !")
-      return
-    }
-
     event.preventDefault();
 
+    if(pass!==password){
+
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Assurer que le mot de passe se conforme avec le mot de passe de confirmation !",
+      });
+      return
+    }
     const data = { 
       firstname,
        lastname, 
@@ -37,14 +43,31 @@ export default function SignUp() {
 
     const resBack = await response.json();
     if (resBack.status === "ok") {
-      navigate("/Login");
+      Swal.fire({
+        position: "mid",
+        icon: "success",
+        title: "User has been added Successfully ",
+        showConfirmButton: false,
+        timer: 1500
+      });
+      setTimeout(() => {
+        navigate("/Login");
+      }, 1500);
+      
     } else {
-      alert("Error: User could not be added.");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Error: User could not be added.",
+      });
+
     }
   }catch(e){
     console.log("error de recevoir la reponse de requette http from server !!! ")
   }
-  }
+}
+
+
   return (
     <center>
       <form className="form-s" onSubmit={handleForm2}>

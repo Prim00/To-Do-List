@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import "./ResetPassStyle.css"
+import Swal from 'sweetalert2'
 
 
 function ResetPass() {
@@ -22,7 +23,13 @@ function ResetPass() {
 
         const reponse = await info.json()
         if(reponse.status=="ok"){
-            alert("veuillez consuler votre mailTrap to Reset yout Password 😋")
+            Swal.fire({
+                position: "top",
+                icon: "success",
+                title: "veuillez consuler votre mailTrap to Reset yout Password 😋",
+                showConfirmButton: false,
+                timer: 1500
+              });
             console.log(reponse.status)
 
         }else{

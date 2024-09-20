@@ -1,7 +1,9 @@
 import React from 'react'
 import { useState } from 'react'
 import './ResetPageStyle.css'
-import { redirect, useNavigate, useParams } from 'react-router-dom'
+import {useNavigate, useParams } from 'react-router-dom'
+
+import Swal from 'sweetalert2'
 
 
  function ResetPage() {
@@ -30,7 +32,15 @@ async function handleSubmit(e){
         const final = await resp.json()
 
         if(final.status =="ok"){
-            alert("Congrat ! Password has been changed successfully ")
+            Swal.fire({
+                position: "mid",
+                icon: "success",
+                title: "Congrat ! Password has been changed successfully",
+                showConfirmButton: false,
+                timer: 2000
+              });
+            setTimeout(()=>{
+                navigate("/Login")},2000)
 
         }else{
             return console.log(final.message)
